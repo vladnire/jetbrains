@@ -59,7 +59,6 @@ def calc_diff_payment(p, n, interest):
         print(f"\nOverpayment = {total_payment - p}")
 
 
-
 def calc_payment(p, n, i):
     """Calculate annuity payment"""
 
@@ -79,7 +78,7 @@ def calc_principal(a, n, i):
     b = i * pow(1 + i, n)
     c = pow(1 + i, n) - 1
 
-    loan_principal = math.floor(a / ( b / c))
+    loan_principal = math.floor(a / (b / c))
     overpayment = a * n - loan_principal
 
     print(f"Your loan principal = {loan_principal}!")
@@ -106,22 +105,22 @@ def calc_period(p, a, i):
     print(f"Overpayment = {overpayment}")
 
 
-def calc_ann_payment(args):
+def calc_ann_payment(params):
     """Calculate annuity payment"""
-    i = nominal_interest(args.interest)
+    i = nominal_interest(params.interest)
 
-    if args.payment == None:
-        calc_payment(args.principal, args.periods, i)
-    elif args.principal == None:
-        calc_principal(args.payment, args.periods, i)
-    elif args.periods == None:
-        calc_period(args.principal, args.payment, i)
+    if params.payment is None:
+        calc_payment(params.principal, params.periods, i)
+    elif params.principal is None:
+        calc_principal(params.payment, params.periods, i)
+    elif params.periods is None:
+        calc_period(params.principal, params.payment, i)
 
 
 if __name__ == "__main__":
-    args = parse_args()
+    arguments = parse_args()
 
-    if args.type == 'diff':
-        calc_diff_payment(args.principal, args.periods, args.interest)
+    if arguments.type == 'diff':
+        calc_diff_payment(arguments.principal, arguments.periods, arguments.interest)
     else:
-        calc_ann_payment(args)
+        calc_ann_payment(arguments)
