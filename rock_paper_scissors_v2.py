@@ -1,5 +1,4 @@
 import random
-import json
 
 
 class RockPaperScissors:
@@ -43,7 +42,6 @@ class RockPaperScissors:
         print("Enter !score to show scores")
         print("Enter !exit to stop playing")
         print("Enter !rules to see loosing conditions")
-        
         
     def set_loosing_conditions(self):
         """Set loosing conditions"""
@@ -90,7 +88,6 @@ class RockPaperScissors:
             print(f"Sorry, but the computer chose {computer}")
             self.computer_score += 100
         
-
     def start_game(self):    
         """Start game, play until user exits"""
         
